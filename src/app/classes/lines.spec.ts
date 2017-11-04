@@ -59,17 +59,15 @@ describe('lines class', () => {
 
     expect(_lines0.calculate([data.train1])).toBe(1);
   });
+  //
+  it('calculate lines when there is 2 train that would go into 1 line', () => {
 
-  it('calculate lines when there is two train that would go into two different lines', () => {
-
-    expect(_lines0.calculate([data.train1, data.train2])).toBe(2);
+    expect(_lines0.calculate([data.train2, data.train1])).toBe(2);
   });
 
-  it('calculate lines when there is two train that would go into two different lines', () => {
+  it('calculate lines when there is 3 train that would go into 3 different lines', () => {
 
-    const __date = new Date();
-
-    expect(_lines0.calculate([data.train1, data.train2, data.train3])).toBe(2);
+    expect(_lines0.calculate([data.train1, data.train2, data.train3])).toBe(3);
   });
 
 

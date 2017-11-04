@@ -22,38 +22,27 @@ export class Lines {
 
   public calculate(trains: Train[]): number {
 
-    if ( trains.length >= 1) {
-      this.lines.push(new Line([trains[0]]));
-    }
+    this.lines = [];
 
-    if ( trains.length >= 2) {
-
-      if ( this.lines[0].line[0].conflict(trains[1])) {
-        this.lines.push(new Line([trains[1]]));
-      } else {
-        this.lines[0].insertAtEnd(trains[1]);
-      }
-    }
-
-    for (let i = 0; i < trains.length; i++ ) {
-
-      for ( let j = 0; j < this.lines.length; j++ ) {
-
-        for (let k = 0; k < this.lines[j].line.length; k++ ) {
-
-          if ( this.lines[j].line[k].conflict(trains[i])) {
-              break;
-          }
+    for (let i = 0; i < trains.length; i ++) {
+      let inserted = false;
+      const train = trains[i];
+      for (let j = 0; j < this.lines.length; j++) {
+        inserted =  this.lines[j].canInsertTrain(train);
+        if (inserted) {
+          this.lines[j].insertAtEnd(train);
+          break;
         }
-
+      }
+      if (!inserted) {
+        this.lines.push(new Line([train]));
       }
     }
 
+    return this.count();
 
-
-
-    return this.lines.length;
   }
+
 
   public sort(dates: Date[]): Date[] {
 

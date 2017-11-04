@@ -47,7 +47,7 @@ describe('train class', () => {
   it('conflict function: when the other train conflicts with the train:' +
     'the departure time of the other trains is between of equals the arrive time and departure time of the train', () => {
 
-    expect(data.train1.conflict(data.train5)).toBe(true);
+    expect(data.train1.conflict(data.train2)).toBe(true);
   });
 
   it('conflict function: when the trains does NOT conflict with the train.' +
@@ -59,7 +59,7 @@ describe('train class', () => {
   it('conflict function: when the trains does NOT conflict with the train.' +
     'the arrive time of the other train is greater than that departure time of the train', () => {
 
-    expect(data.train1.conflict(data.train3)).toBe(false);
+    expect(data.train1.conflict(data.train3)).toBe(true);
   });
 
 });

@@ -15,8 +15,8 @@ export const train1_arrive = new Date(
   Lines.year,
   Lines.month,
   Lines.day,
-  18,
-  56,
+  1,
+  0,
   Lines.second,
   Lines.millisecond
 );
@@ -25,8 +25,8 @@ export const train1_departure = new Date(
   Lines.year,
   Lines.month,
   Lines.day,
-  19,
-  54,
+  2,
+  0,
   Lines.second,
   Lines.millisecond
 );
@@ -39,8 +39,8 @@ export const train2_arrive = new Date(
   Lines.year,
   Lines.month,
   Lines.day,
-  19,
-  0,
+  1,
+  20,
   Lines.second,
   Lines.millisecond
 );
@@ -49,8 +49,8 @@ export const train2_departure = new Date(
   Lines.year,
   Lines.month,
   Lines.day,
-  18,
-  50,
+  1,
+  40,
   Lines.second,
   Lines.millisecond
 );
@@ -63,8 +63,8 @@ export const train3_arrive = new Date(
   Lines.year,
   Lines.month,
   Lines.day,
-  20,
-  0,
+  1,
+  30,
   Lines.second,
   Lines.millisecond
 );
@@ -74,8 +74,8 @@ export const train3_departure = new Date(
   Lines.year,
   Lines.month,
   Lines.day,
-  20,
-  5,
+  2,
+  30,
   Lines.second,
   Lines.millisecond
 );

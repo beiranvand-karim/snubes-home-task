@@ -12,13 +12,17 @@ export class Train {
 
     if (otherTrain.arriveTime >= this.arriveTime && otherTrain.arriveTime <= this.departureTime) {
       return true;
-    } else if (otherTrain.departureTime >= this.arriveTime && otherTrain.departureTime <= this.departureTime) {
-      return true;
-    } else if (otherTrain.departureTime < this.arriveTime && otherTrain.arriveTime < this.arriveTime) {
-      return false;
-    } else if (otherTrain.arriveTime > this.departureTime && otherTrain.departureTime > this.departureTime) {
-      return false;
     }
+
+    if (otherTrain.departureTime >= this.arriveTime && otherTrain.departureTime <= this.departureTime) {
+      return true;
+    }
+
+    if (otherTrain.arriveTime < this.arriveTime && otherTrain.departureTime > this.departureTime) {
+      return true;
+    }
+
+    return false;
   }
 
   set arriveTime(value: Date) {

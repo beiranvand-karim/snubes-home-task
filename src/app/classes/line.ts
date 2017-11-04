@@ -10,6 +10,16 @@ export class Line {
     this.line = trains;
   }
 
+  public canInsertTrain(train: Train): boolean {
+
+    for (let i = 0; i < this.size(); i++) {
+      const otherTrain = this.line[i];
+      if (train.conflict(otherTrain)) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   public insertAtEnd(train: Train): Train[] {
 

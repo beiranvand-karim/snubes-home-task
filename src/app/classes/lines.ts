@@ -4,13 +4,6 @@ import {Train} from './train';
 export class Lines {
 
 
-  public static year = 2017;
-  public static month = 11;
-  public static day = 29;
-  public static second = 0;
-  public static millisecond = 0;
-
-
   private _lines: Line[] = [];
 
 

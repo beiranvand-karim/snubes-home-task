@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {TrainsService} from './services/trains.service';
 import {Observable} from 'rxjs/Observable';
-import {Train} from './interfaces/train';
-import {DraggedElement} from './interfaces/dragged-element';
+import {Train} from './classes/train';
+import {DraggedElement} from './classes/dragged-element';
+import * as constants from './constants/constants';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +40,47 @@ export class AppComponent implements OnInit{
 
   onDrop(event) {
     event.preventDefault();
-    this._trainsService.addLocomotive();
+
+    this.elementDragged$.subscribe(elType => {
+
+      if (elType.locomotive) {
+
+        const arriveTimeHour = prompt('arrive time hour');
+        const arriveTimeMinutes = prompt('arrive time minutes');
+
+        const departureTimeHour = prompt('departure time hour');
+        const departureTimeMinutes = prompt('departure time minutes');
+
+        const arriveTime = new Date(
+          constants.year,
+          constants.month,
+          constants.day,
+
+          + arriveTimeHour,
+          + arriveTimeMinutes,
+
+          constants.second,
+          constants.millisecond
+        );
+
+        const departureTime = new Date(
+          constants.year,
+          constants.month,
+          constants.day,
+
+          + departureTimeHour,
+          + departureTimeMinutes,
+
+          constants.second,
+          constants.millisecond
+        );
+
+
+        this._trainsService.addTrain(arriveTime, departureTime);
+      }
+
+    });
+
 
   }
 

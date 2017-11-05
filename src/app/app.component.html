@@ -13,8 +13,9 @@
   </div>
   <div class="right-side"  (drop)="onDrop($event)" (dragover)="dragOver($event)">
     <ul>
-      <li  *ngFor="let train of trains$ | async" (dragover)="dragOver($event)" (drop)="onDropIntoTrain(train.trainId)">
+      <li  *ngFor="let train of trains$ | async" (dragover)="dragOver($event)" (drop)="onDropIntoTrain(train.id)">
         <img src="../assets/icons/locomotive.svg" alt="locomotive">
+        <img src="../assets/icons/carriage.svg" alt="carriage" *ngFor="let carriage of train.carriages">
       </li>
     </ul>
   </div>

@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Train} from '../interfaces/train';
-import {DraggedElement} from '../interfaces/dragged-element';
+import {Train} from '../classes/train';
+import {DraggedElement} from '../classes/dragged-element';
+import {Locomotive} from '../classes/locomotive';
+import {Carriage} from '../classes/carriage';
 
 @Injectable()
 export class TrainsService {
-
 
   private _trains = new BehaviorSubject<Train[]>([]);
 
   public trains$ = this._trains.asObservable();
 
-
-  private _draggedElementType = new BehaviorSubject<DraggedElement>({ locomotive: false, carriage: false});
+  private _draggedElementType = new BehaviorSubject<DraggedElement>({locomotive: false, carriage: false});
 
   public draggedElementType$ = this._draggedElementType.asObservable();
 
@@ -25,7 +25,12 @@ export class TrainsService {
 
       this._trains.subscribe(trains => {
         if (elType.carriage) {
-          trains.find(train => train.trainId === trainId).carriages ++;
+          const carriages = trains.find(train => train.id === trainId).carriages;
+
+          const newCarriage = new Carriage();
+          newCarriage.id = carriages.length + 1;
+
+          carriages.push(newCarriage);
         }
       });
     });
@@ -33,19 +38,24 @@ export class TrainsService {
 
   }
 
-  addLocomotive() {
+  addTrain(arriveTime: Date, departureTime: Date) {
 
     this._draggedElementType.subscribe(type => {
 
       this._trains.subscribe(trains => {
 
         if (type.locomotive) {
-          trains.push({trainId: trains.length + 1, locomotive: true, carriages: 0});
+
+          const locomotive = new Locomotive();
+          locomotive.id = 1;
+
+          const train = new Train(arriveTime, departureTime);
+          train.id = trains.length + 1;
+          train.carriages = [];
+
+          trains.push(train);
         }
-
       });
-
-
     });
   }
 
@@ -63,7 +73,5 @@ export class TrainsService {
       data.carriage = true;
     });
   }
-
-
 
 }

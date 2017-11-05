@@ -1,5 +1,6 @@
-export interface DraggedElement {
+export class DraggedElement {
 
   locomotive: boolean;
   carriage: boolean;
+
 }

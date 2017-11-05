@@ -1,9 +1,7 @@
 
 
-
-
-import {Lines} from './lines';
 import {Train} from './train';
+import * as constants from '../constants/constants';
 
 
 /**
@@ -12,23 +10,23 @@ import {Train} from './train';
  * @type {Date}
  */
 export const train1_arrive = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   1,
   0,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 export const train1_departure = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   2,
   0,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 /**
@@ -36,23 +34,23 @@ export const train1_departure = new Date(
  * @type {Date}
  */
 export const train2_arrive = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   1,
   20,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 export const train2_departure = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   1,
   40,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 /**
  * arrive and departure times for third train
@@ -60,70 +58,70 @@ export const train2_departure = new Date(
  * @type {Date}
  */
 export const train3_arrive = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   1,
   30,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 
 export const train3_departure = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   2,
   30,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 
 
 export const train4_arrive = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   18,
   30,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 
 export const train4_departure = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   18,
   40,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 
 
 export const train5_arrive = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   18,
   30,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 
 export const train5_departure = new Date(
-  Lines.year,
-  Lines.month,
-  Lines.day,
+  constants.year,
+  constants.month,
+  constants.day,
   19,
   30,
-  Lines.second,
-  Lines.millisecond
+  constants.second,
+  constants.millisecond
 );
 
 export const _arriveTimes: Date[] = [train1_arrive, train2_arrive, train3_arrive];

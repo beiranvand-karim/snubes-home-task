@@ -4,6 +4,7 @@ import {Train} from '../classes/train';
 import {DraggedElement} from '../classes/dragged-element';
 import {Locomotive} from '../classes/locomotive';
 import {Carriage} from '../classes/carriage';
+import {Lines} from '../classes/lines';
 
 @Injectable()
 export class TrainsService {
@@ -16,8 +17,24 @@ export class TrainsService {
 
   public draggedElementType$ = this._draggedElementType.asObservable();
 
+
+  private _lines = new BehaviorSubject<number>(0);
+
+  public  lines$ = this._lines.asObservable();
+
   constructor() { }
 
+  calculateLines() {
+
+    const lines = new Lines();
+
+    this._trains.subscribe(trains => {
+
+      const count = lines.calculate(trains);
+      this._lines.next(count);
+
+    });
+  }
 
   addCarriage(trainId) {
 

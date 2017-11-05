@@ -2,7 +2,6 @@
 
 div.container {
   display: flex;
-  background-color: lightsalmon;
 
   > div.left-side {
     display: flex;
@@ -40,7 +39,9 @@ div.container {
       > li {
 
         display: flex;
+        flex-wrap: wrap;
         border: 1px solid lightskyblue;
+        margin: 5px;
 
         > img {
           display: inline-block;
@@ -50,4 +51,10 @@ div.container {
       }
     }
   }
+}
+
+div.result-actions {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }

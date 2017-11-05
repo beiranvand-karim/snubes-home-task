@@ -7,6 +7,7 @@
       <img src="../assets/icons/locomotive.svg" alt="locomotive">
     </div>
     <div class="carriage" id="carriage" (dragstart)="dragStartCarriage()" draggable="true">
+
       <img src="../assets/icons/carriage.svg" alt="carriage">
 
     </div>
@@ -19,4 +20,9 @@
       </li>
     </ul>
   </div>
+</div>
+
+<div class="result-actions">
+  <button type="button" (click)="calculateLines()">calculate lines</button>&nbsp;&nbsp;
+  <span> {{linesCount$ | async}}</span>
 </div>

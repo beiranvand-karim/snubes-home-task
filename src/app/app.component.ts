@@ -16,6 +16,8 @@ export class AppComponent implements OnInit{
   trains$: Observable<Train[]>;
   elementDragged$: Observable<DraggedElement>;
 
+  linesCount$: Observable<number>;
+
   constructor(
     private _trainsService: TrainsService
   ) {
@@ -25,6 +27,13 @@ export class AppComponent implements OnInit{
 
     this.trains$ = this._trainsService.trains$;
     this.elementDragged$ = this._trainsService.draggedElementType$;
+    this.linesCount$ = this._trainsService.lines$;
+  }
+
+  calculateLines() {
+
+    this._trainsService.calculateLines();
+
   }
 
   dragOver(event) {

@@ -4,21 +4,18 @@
   <div class="left-side">
 
     <div class="locomotive" id="locomotive" (dragstart)="dragStartLocomotive()"  draggable="true">
-
-      locomotive
+      <img src="../assets/icons/locomotive.svg" alt="locomotive">
     </div>
     <div class="carriage" id="carriage" (dragstart)="dragStartCarriage()" draggable="true">
-      carriage
+      <img src="../assets/icons/carriage.svg" alt="carriage">
 
     </div>
   </div>
-  <div class="right-side" >
-
-    <div class="drop-zone" (drop)="onDrop($event)" (dragover)="dragOver($event)">
-
-      <ul>
-        <li  *ngFor="let train of trains$ | async" (dragover)="dragOver($event)" (drop)="onDropIntoTrain(train.trainId)"> id: {{train.trainId}}-- carriages:{{train.carriages}}-- locomotive:{{train.locomotive}}</li>
-      </ul>
-    </div>
+  <div class="right-side"  (drop)="onDrop($event)" (dragover)="dragOver($event)">
+    <ul>
+      <li  *ngFor="let train of trains$ | async" (dragover)="dragOver($event)" (drop)="onDropIntoTrain(train.trainId)">
+        <img src="../assets/icons/locomotive.svg" alt="locomotive">
+      </li>
+    </ul>
   </div>
 </div>

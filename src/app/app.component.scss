@@ -1,0 +1,41 @@
+
+
+div.container {
+  display: flex;
+  background-color: lightsalmon;
+
+  > div.left-side {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: lightgray;
+
+
+    > div.locomotive {
+      display: flex;
+      justify-content: center;
+    }
+
+    > div.carriage {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+
+  > div.right-side {
+    display: flex;
+    justify-content: center;
+
+    width: 80%;
+    background-color: lightgoldenrodyellow;
+
+
+    > div.drop-zone {
+
+      background-color: lightpink;
+      width: 20%;
+      height: 100px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+
+
+<div class="container">
+  <div class="left-side">
+
+    <div class="locomotive" id="locomotive" (dragstart)="dragStartLocomotive()"  draggable="true">
+
+      locomotive
+    </div>
+    <div class="carriage" id="carriage" (dragstart)="dragStartCarriage()" draggable="true">
+      carriage
+
+    </div>
+  </div>
+  <div class="right-side" >
+
+    <div class="drop-zone" (drop)="onDrop($event)" (dragover)="dragOver($event)">
+
+      <ul>
+        <li  *ngFor="let train of trains$ | async" (dragover)="dragOver($event)" (drop)="onDropIntoTrain(train.trainId)"> id: {{train.trainId}}-- carriages:{{train.carriages}}-- locomotive:{{train.locomotive}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
